@@ -6,18 +6,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import com.safedriving.dao.Dao;
-import com.safedriving.entity.Adresse;
+import com.safedriving.entity.TypeVehicule;
 
-public class JpaAdresseDao implements Dao<Adresse>{
+public class JpaTypeVehiculeDao implements Dao<TypeVehicule>{
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
-	public JpaAdresseDao(EntityManagerFactory emf){
+	public JpaTypeVehiculeDao(EntityManagerFactory emf){
 		this.emf = emf;
 	}
-
+	
 	@Override
-	public void ajouter(Adresse t) {
+	public void ajouter(TypeVehicule t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -29,11 +29,11 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public Adresse trouverParId(Long id) {
+	public TypeVehicule trouverParId(Long id) {
 		em = emf.createEntityManager();
-		Adresse t = null;
+		TypeVehicule t = null;
 		try {
-			t = em.find(Adresse.class, id);
+			t = em.find(TypeVehicule.class, id);
 		} finally {
 			em.close();
 			return t;			
@@ -41,24 +41,24 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public List<Adresse> lister() {
+	public List<TypeVehicule> lister() {
 		em = emf.createEntityManager();
-		List<Adresse> adresses = null;
+		List<TypeVehicule> typesVehicule = null;
 		try {
-			adresses = (List<Adresse>) em.createQuery("SELECT p FROM adresse AS p").getResultList();
+			typesVehicule = (List<TypeVehicule>) em.createQuery("SELECT p FROM type_vehicule AS p").getResultList();
 		} finally {
 			em.close();
-			return adresses;
+			return typesVehicule;
 		}
 	}
 
 	@Override
-	public void maJ(Adresse t) {
+	public void maJ(TypeVehicule t) {
 		
 	}
 
 	@Override
-	public void supprimer(Adresse t) {
+	public void supprimer(TypeVehicule t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();

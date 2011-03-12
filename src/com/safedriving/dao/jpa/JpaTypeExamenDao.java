@@ -6,18 +6,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import com.safedriving.dao.Dao;
-import com.safedriving.entity.Adresse;
+import com.safedriving.entity.TypeExamen;
 
-public class JpaAdresseDao implements Dao<Adresse>{
+public class JpaTypeExamenDao implements Dao<TypeExamen>{
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
-	public JpaAdresseDao(EntityManagerFactory emf){
+	public JpaTypeExamenDao(EntityManagerFactory emf){
 		this.emf = emf;
 	}
-
+	
 	@Override
-	public void ajouter(Adresse t) {
+	public void ajouter(TypeExamen t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -29,11 +29,11 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public Adresse trouverParId(Long id) {
+	public TypeExamen trouverParId(Long id) {
 		em = emf.createEntityManager();
-		Adresse t = null;
+		TypeExamen t = null;
 		try {
-			t = em.find(Adresse.class, id);
+			t = em.find(TypeExamen.class, id);
 		} finally {
 			em.close();
 			return t;			
@@ -41,24 +41,24 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public List<Adresse> lister() {
+	public List<TypeExamen> lister() {
 		em = emf.createEntityManager();
-		List<Adresse> adresses = null;
+		List<TypeExamen> typesExamen = null;
 		try {
-			adresses = (List<Adresse>) em.createQuery("SELECT p FROM adresse AS p").getResultList();
+			typesExamen = (List<TypeExamen>) em.createQuery("SELECT p FROM type_examen AS p").getResultList();
 		} finally {
 			em.close();
-			return adresses;
+			return typesExamen;
 		}
 	}
 
 	@Override
-	public void maJ(Adresse t) {
+	public void maJ(TypeExamen t) {
 		
 	}
 
 	@Override
-	public void supprimer(Adresse t) {
+	public void supprimer(TypeExamen t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();

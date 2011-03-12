@@ -6,18 +6,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import com.safedriving.dao.Dao;
-import com.safedriving.entity.Adresse;
+import com.safedriving.entity.Formateur;
 
-public class JpaAdresseDao implements Dao<Adresse>{
+public class JpaFormateurDao implements Dao<Formateur>{
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
-	public JpaAdresseDao(EntityManagerFactory emf){
+	public JpaFormateurDao(EntityManagerFactory emf){
 		this.emf = emf;
 	}
-
+	
 	@Override
-	public void ajouter(Adresse t) {
+	public void ajouter(Formateur t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -29,11 +29,11 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public Adresse trouverParId(Long id) {
+	public Formateur trouverParId(Long id) {
 		em = emf.createEntityManager();
-		Adresse t = null;
+		Formateur t = null;
 		try {
-			t = em.find(Adresse.class, id);
+			t = em.find(Formateur.class, id);
 		} finally {
 			em.close();
 			return t;			
@@ -41,24 +41,24 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public List<Adresse> lister() {
+	public List<Formateur> lister() {
 		em = emf.createEntityManager();
-		List<Adresse> adresses = null;
+		List<Formateur> formateurs = null;
 		try {
-			adresses = (List<Adresse>) em.createQuery("SELECT p FROM adresse AS p").getResultList();
+			formateurs = (List<Formateur>) em.createQuery("SELECT p FROM formateur AS p").getResultList();
 		} finally {
 			em.close();
-			return adresses;
+			return formateurs;
 		}
 	}
 
 	@Override
-	public void maJ(Adresse t) {
+	public void maJ(Formateur t) {
 		
 	}
 
 	@Override
-	public void supprimer(Adresse t) {
+	public void supprimer(Formateur t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();

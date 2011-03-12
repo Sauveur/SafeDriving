@@ -6,18 +6,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import com.safedriving.dao.Dao;
-import com.safedriving.entity.Adresse;
+import com.safedriving.entity.Client;
 
-public class JpaAdresseDao implements Dao<Adresse>{
+public class JpaClientDao implements Dao<Client>{
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
-	public JpaAdresseDao(EntityManagerFactory emf){
+	public JpaClientDao(EntityManagerFactory emf){
 		this.emf = emf;
 	}
-
+	
 	@Override
-	public void ajouter(Adresse t) {
+	public void ajouter(Client t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -29,11 +29,11 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public Adresse trouverParId(Long id) {
+	public Client trouverParId(Long id) {
 		em = emf.createEntityManager();
-		Adresse t = null;
+		Client t = null;
 		try {
-			t = em.find(Adresse.class, id);
+			t = em.find(Client.class, id);
 		} finally {
 			em.close();
 			return t;			
@@ -41,24 +41,24 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public List<Adresse> lister() {
+	public List<Client> lister() {
 		em = emf.createEntityManager();
-		List<Adresse> adresses = null;
+		List<Client> clients = null;
 		try {
-			adresses = (List<Adresse>) em.createQuery("SELECT p FROM adresse AS p").getResultList();
+			clients = (List<Client>) em.createQuery("SELECT p FROM client AS p").getResultList();
 		} finally {
 			em.close();
-			return adresses;
+			return clients;
 		}
 	}
 
 	@Override
-	public void maJ(Adresse t) {
+	public void maJ(Client t) {
 		
 	}
 
 	@Override
-	public void supprimer(Adresse t) {
+	public void supprimer(Client t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
