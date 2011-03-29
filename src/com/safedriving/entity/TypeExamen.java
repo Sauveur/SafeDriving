@@ -17,9 +17,9 @@ public class TypeExamen implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nom;
-	@OneToMany
+	@OneToMany(mappedBy="typeExamen")
 	private List<Examen> examens;
-	@OneToMany
+	@OneToMany(mappedBy="typeExamen")
 	private List<ExamenPrefecture> examensPrefecture;
 	
 	public Long getId() {

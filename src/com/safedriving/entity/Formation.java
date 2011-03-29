@@ -19,7 +19,7 @@ public class Formation implements Serializable{
 	private float prix;
 	private int duree;
 	private int nombrePlaces;
-	@OneToMany
+	@OneToMany(mappedBy="formation")
 	private List<SessionFormation> sessionsFormation;
 	
 	public Long getId() {

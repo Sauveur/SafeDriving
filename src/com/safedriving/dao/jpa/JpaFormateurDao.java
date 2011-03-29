@@ -53,7 +53,7 @@ public class JpaFormateurDao implements Dao<Formateur>{
 	}
 
 	@Override
-	public void maJ(Formateur t) {
+	public void maj(Formateur t) {
 		
 	}
 

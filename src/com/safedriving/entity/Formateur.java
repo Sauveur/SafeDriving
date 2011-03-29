@@ -19,10 +19,10 @@ public class Formateur implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private boolean estCommercial;
-	@OneToMany
+	@OneToMany(mappedBy="formateur")
 	private List<SessionFormation> sessionsFormation;
 	@OneToOne
-	@JoinColumn(name="utilisateur")
+	@JoinColumn(name="FK_utilisateur")
 	private Utilisateur utilisateur;
 	
 	public Long getId() {

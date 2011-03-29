@@ -53,7 +53,7 @@ public class JpaVehiculeDao implements Dao<Vehicule>{
 	}
 
 	@Override
-	public void maJ(Vehicule t) {
+	public void maj(Vehicule t) {
 		
 	}
 

@@ -17,7 +17,7 @@ public class TypeVehicule implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nom;
-	@OneToMany
+	@OneToMany(mappedBy="typeVehicule")
 	private List<Vehicule> vehicules;
 	
 	public Long getId() {

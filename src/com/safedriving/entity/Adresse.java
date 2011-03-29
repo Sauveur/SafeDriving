@@ -20,6 +20,8 @@ public class Adresse implements Serializable{
 	private String ville;
 	private int codePostal;
 	@OneToMany(mappedBy="adresse")
+	private List<Client> clients;
+	@OneToMany(mappedBy="adresse")
 	private List<Lieu> lieux;
 	
 	public Long getId() {
@@ -51,6 +53,12 @@ public class Adresse implements Serializable{
 	}
 	public void setLieux(List<Lieu> lieux) {
 		this.lieux = lieux;
+	}
+	public List<Client> getClients() {
+		return clients;
+	}
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
 	}
 	
 	public Adresse(){

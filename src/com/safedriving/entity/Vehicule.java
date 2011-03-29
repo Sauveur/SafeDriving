@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -20,14 +21,16 @@ public class Vehicule implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@ManyToOne
-	@JoinColumn(name="type_vehivule")
+	@JoinColumn(name="FK_type_vehivule")
 	private TypeVehicule typeVehicule;
 	private String Immatriculation;
 	@ManyToOne
-	@JoinColumn(name="agence")
+	@JoinColumn(name="FK_agence")
 	private Lieu agence;
-	@OneToMany
+	@ManyToMany(mappedBy="vehicules")
 	private List<SessionFormation> sessionsFormation;
+	@ManyToMany(mappedBy="vehicules")
+	private List<ExamenPrefecture> examensPrefecture;
 	
 	public Long getId() {
 		return id;
@@ -58,6 +61,12 @@ public class Vehicule implements Serializable{
 	}
 	public void setSessionsFormation(List<SessionFormation> sessionsFormation) {
 		this.sessionsFormation = sessionsFormation;
+	}
+	public List<ExamenPrefecture> getExamensPrefecture() {
+		return examensPrefecture;
+	}
+	public void setExamensPrefecture(List<ExamenPrefecture> examensPrefecture) {
+		this.examensPrefecture = examensPrefecture;
 	}
 	
 	public Vehicule() {

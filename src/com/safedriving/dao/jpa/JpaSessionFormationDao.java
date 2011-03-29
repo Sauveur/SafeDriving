@@ -53,7 +53,7 @@ public class JpaSessionFormationDao implements Dao<SessionFormation>{
 	}
 
 	@Override
-	public void maJ(SessionFormation t) {
+	public void maj(SessionFormation t) {
 		
 	}
 

@@ -18,12 +18,12 @@ public class Examen implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@ManyToOne
-	@JoinColumn(name="type_examen")
+	@JoinColumn(name="FK_type_examen")
 	private TypeExamen typeExamen;
 	private Date dateDePassage;
 	private boolean obtenu;
 	@ManyToOne
-	@JoinColumn(name="client")
+	@JoinColumn(name="FK_client")
 	private Client client;
 	public Long getId() {
 		return id;

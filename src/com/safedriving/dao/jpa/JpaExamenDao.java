@@ -53,7 +53,7 @@ public class JpaExamenDao implements Dao<Examen>{
 	}
 
 	@Override
-	public void maJ(Examen t) {
+	public void maj(Examen t) {
 		
 	}
 

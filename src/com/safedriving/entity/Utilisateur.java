@@ -24,9 +24,9 @@ public class Utilisateur implements Serializable{
 	private String mail;
 	private Date naissance;
 	private Date inscription;
-	@OneToOne
+	@OneToOne(mappedBy="utilisateur")
 	private Formateur formateur;
-	@OneToOne
+	@OneToOne(mappedBy="utilisateur")
 	private Client client;
 
 	public Long getId() {

@@ -53,7 +53,7 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 	}
 
 	@Override
-	public void maJ(Utilisateur t) {
+	public void maj(Utilisateur t) {
 		
 	}
 

@@ -53,7 +53,7 @@ public class JpaClientDao implements Dao<Client>{
 	}
 
 	@Override
-	public void maJ(Client t) {
+	public void maj(Client t) {
 		
 	}
 

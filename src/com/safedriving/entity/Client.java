@@ -19,17 +19,19 @@ public class Client implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	@ManyToOne
+	@JoinColumn(name="FK_adresse")
 	private Adresse adresse;
 	private String telephone;
 	@ManyToOne
-	@JoinColumn(name="fk_agence")
+	@JoinColumn(name="FK_agence")
 	private Lieu agence;
-	@OneToMany
+	@OneToMany(mappedBy="client")
 	private List<Examen> examens;
-	@OneToMany
+	@OneToMany(mappedBy="client")
 	private List<SessionFormation> sessionsFormation;
 	@OneToOne
-	@JoinColumn(name="utilisateur")
+	@JoinColumn(name="FK_utilisateur")
 	private Utilisateur utilisateur;
 	
 	public Long getId() {

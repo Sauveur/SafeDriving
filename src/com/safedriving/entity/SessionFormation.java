@@ -2,12 +2,15 @@ package com.safedriving.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,22 +22,22 @@ public class SessionFormation implements Serializable{
 	private Long id;
 	private Date debut;
 	private Date fin;
+	@ManyToMany
+	@JoinTable(name="session_formation_vers_vehicule")
+	private List<Vehicule> vehicules;
 	@ManyToOne
-	@JoinColumn(name="vehicule")
-	private Vehicule vehicule;
-	@ManyToOne
-	@JoinColumn(name="formateur")
+	@JoinColumn(name="FK_formateur")
 	private Formateur formateur;
 	@ManyToOne
-	@JoinColumn(name="lieu")
+	@JoinColumn(name="FK_lieu")
 	private Lieu lieu;
 	@ManyToOne
-	@JoinColumn(name="formation")
+	@JoinColumn(name="FK_formation")
 	private Formation formation;
 	private int note;
 	private String comentaire;
 	@ManyToOne
-	@JoinColumn(name="client")
+	@JoinColumn(name="FK_client")
 	private Client client;
 	
 	public Long getId() {
@@ -54,12 +57,6 @@ public class SessionFormation implements Serializable{
 	}
 	public void setFin(Date fin) {
 		this.fin = fin;
-	}
-	public Vehicule getVehicule() {
-		return vehicule;
-	}
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
 	}
 	public Formateur getFormateur() {
 		return formateur;
@@ -96,6 +93,12 @@ public class SessionFormation implements Serializable{
 	}
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	public List<Vehicule> getVehicules() {
+		return vehicules;
+	}
+	public void setVehicules(List<Vehicule> vehicules) {
+		this.vehicules = vehicules;
 	}
 	
 	public SessionFormation() {

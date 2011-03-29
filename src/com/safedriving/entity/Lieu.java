@@ -20,15 +20,15 @@ public class Lieu implements Serializable{
 	private Long id;
 	private String nom;
 	@ManyToOne
-	@JoinColumn(name="fk_adresse")
+	@JoinColumn(name="FK_adresse")
 	private Adresse adresse;
-	@OneToMany
+	@OneToMany(mappedBy="agence")
 	private List<Client> clients;
-	@OneToMany
+	@OneToMany(mappedBy="lieu")
 	private List<ExamenPrefecture> examensPrefecture;
-	@OneToMany
+	@OneToMany(mappedBy="agence")
 	private List<Vehicule> vehicules;
-	@OneToMany
+	@OneToMany(mappedBy="lieu")
 	private List<SessionFormation> sessionsFormation;
 	
 	public Long getId() {

@@ -53,7 +53,7 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public void maJ(Adresse t) {
+	public void maj(Adresse t) {
 		
 	}
 

@@ -53,7 +53,7 @@ public class JpaLieuDao implements Dao<Lieu>{
 	}
 
 	@Override
-	public void maJ(Lieu t) {
+	public void maj(Lieu t) {
 		
 	}
 
