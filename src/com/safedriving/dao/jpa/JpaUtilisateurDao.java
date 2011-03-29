@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 
 import com.safedriving.dao.Dao;
 import com.safedriving.entity.Utilisateur;
@@ -48,8 +49,8 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 			utilisateurs = (List<Utilisateur>) em.createQuery("SELECT p FROM utilisateur AS p").getResultList();
 		} finally {
 			em.close();
-			return utilisateurs;
 		}
+		return utilisateurs;
 	}
 
 	@Override
@@ -67,6 +68,23 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 		} finally {
 			em.close();
 		}
+	}
+	
+	public boolean authentifier(String pseudo, String mdp) {
+		em = emf.createEntityManager();
+		boolean auth = false;
+		try {
+			Query req = em.createQuery("SELECT p FROM utilisateur AS p WHERE p.pseudo= :pseudo");
+			req.setParameter("pseudo", pseudo);
+			Utilisateur utilisateur = (Utilisateur) req.getSingleResult();
+			if (utilisateur != null && utilisateur.getMotDePasse() == mdp) {
+				auth = true;
+			}
+			else auth = false;
+		} finally {
+			em.close();
+		}
+		return auth;
 	}
 
 }

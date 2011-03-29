@@ -19,7 +19,7 @@ public class Utilisateur implements Serializable{
 	private String pseudo;
 	private String nom;
 	private String prenom;
-	private String motDePasse;
+	private String mdp;
 	private String sexe;
 	private String mail;
 	private Date naissance;
@@ -54,10 +54,10 @@ public class Utilisateur implements Serializable{
 		this.prenom = prenom;
 	}
 	public String getMotDePasse() {
-		return motDePasse;
+		return mdp;
 	}
 	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+		this.mdp = motDePasse;
 	}
 	public String getSexe() {
 		return sexe;

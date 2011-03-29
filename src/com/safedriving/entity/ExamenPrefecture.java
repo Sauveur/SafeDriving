@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -15,6 +18,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="examen_prefecture")
 public class ExamenPrefecture implements Serializable{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name="FK_type_examen")
