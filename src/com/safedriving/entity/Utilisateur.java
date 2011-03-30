@@ -22,8 +22,9 @@ public class Utilisateur implements Serializable{
 	private String mdp;
 	private String sexe;
 	private String mail;
-	private Date naissance;
-	private Date inscription;
+	private String photo;
+	private Date dateNaissance;
+	private Date dateInscription;
 	@OneToOne(mappedBy="utilisateur")
 	private Formateur formateur;
 	@OneToOne(mappedBy="utilisateur")
@@ -53,10 +54,10 @@ public class Utilisateur implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getMotDePasse() {
+	public String getMdp() {
 		return mdp;
 	}
-	public void setMotDePasse(String motDePasse) {
+	public void setMdp(String motDePasse) {
 		this.mdp = motDePasse;
 	}
 	public String getSexe() {
@@ -71,17 +72,17 @@ public class Utilisateur implements Serializable{
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public Date getNaissance() {
-		return naissance;
+	public Date getDateNaissance() {
+		return dateNaissance;
 	}
-	public void setNaissance(Date naissance) {
-		this.naissance = naissance;
+	public void setDateNaissance(Date naissance) {
+		this.dateNaissance = naissance;
 	}
-	public Date getInscription() {
-		return inscription;
+	public Date getDateInscription() {
+		return dateInscription;
 	}
-	public void setInscription(Date inscription) {
-		this.inscription = inscription;
+	public void setDateInscription(Date inscription) {
+		this.dateInscription = inscription;
 	}
 	public Formateur getFormateur() {
 		return formateur;
@@ -94,6 +95,12 @@ public class Utilisateur implements Serializable{
 	}
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 	public Utilisateur() {

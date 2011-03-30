@@ -45,7 +45,7 @@ public class JpaFormationDao implements Dao<Formation>{
 		em = emf.createEntityManager();
 		List<Formation> formations = null;
 		try {
-			formations = (List<Formation>) em.createQuery("SELECT p FROM formation AS p").getResultList();
+			formations = (List<Formation>) em.createQuery("SELECT p FROM Formation AS p").getResultList();
 		} finally {
 			em.close();
 			return formations;

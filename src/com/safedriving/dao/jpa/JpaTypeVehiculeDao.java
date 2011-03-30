@@ -45,7 +45,7 @@ public class JpaTypeVehiculeDao implements Dao<TypeVehicule>{
 		em = emf.createEntityManager();
 		List<TypeVehicule> typesVehicule = null;
 		try {
-			typesVehicule = (List<TypeVehicule>) em.createQuery("SELECT p FROM type_vehicule AS p").getResultList();
+			typesVehicule = (List<TypeVehicule>) em.createQuery("SELECT p FROM TypeVehicule AS p").getResultList();
 		} finally {
 			em.close();
 			return typesVehicule;

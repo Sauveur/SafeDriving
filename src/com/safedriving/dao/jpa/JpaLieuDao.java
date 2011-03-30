@@ -45,7 +45,7 @@ public class JpaLieuDao implements Dao<Lieu>{
 		em = emf.createEntityManager();
 		List<Lieu> lieux = null;
 		try {
-			lieux = (List<Lieu>) em.createQuery("SELECT p FROM lieu AS p").getResultList();
+			lieux = (List<Lieu>) em.createQuery("SELECT p FROM Lieu AS p").getResultList();
 		} finally {
 			em.close();
 			return lieux;

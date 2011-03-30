@@ -45,7 +45,7 @@ public class JpaFormateurDao implements Dao<Formateur>{
 		em = emf.createEntityManager();
 		List<Formateur> formateurs = null;
 		try {
-			formateurs = (List<Formateur>) em.createQuery("SELECT p FROM formateur AS p").getResultList();
+			formateurs = (List<Formateur>) em.createQuery("SELECT p FROM Formateur AS p").getResultList();
 		} finally {
 			em.close();
 			return formateurs;

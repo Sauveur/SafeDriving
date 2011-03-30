@@ -45,7 +45,7 @@ public class JpaSessionFormationDao implements Dao<SessionFormation>{
 		em = emf.createEntityManager();
 		List<SessionFormation> sessionsFormation = null;
 		try {
-			sessionsFormation = (List<SessionFormation>) em.createQuery("SELECT p FROM session_formation AS p").getResultList();
+			sessionsFormation = (List<SessionFormation>) em.createQuery("SELECT p FROM SessionFormation AS p").getResultList();
 		} finally {
 			em.close();
 			return sessionsFormation;

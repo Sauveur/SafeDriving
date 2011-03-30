@@ -46,7 +46,7 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 		em = emf.createEntityManager();
 		List<Utilisateur> utilisateurs = null;
 		try {
-			utilisateurs = (List<Utilisateur>) em.createQuery("SELECT p FROM utilisateur AS p").getResultList();
+			utilisateurs = (List<Utilisateur>) em.createQuery("SELECT p FROM Utilisateur AS p").getResultList();
 		} finally {
 			em.close();
 		}
@@ -69,21 +69,23 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 			em.close();
 		}
 	}
-	
+	/* méthode appelée dans le filtre d'authentification pour contrôler les données de connexion */
 	public boolean authentifier(String pseudo, String mdp) {
 		em = emf.createEntityManager();
 		boolean auth = false;
+		Utilisateur utilisateur;
 		try {
-			Query req = em.createQuery("SELECT p FROM utilisateur AS p WHERE p.pseudo= :pseudo");
+			Query req = em.createQuery("SELECT p FROM Utilisateur AS p WHERE p.pseudo= :pseudo");
 			req.setParameter("pseudo", pseudo);
-			Utilisateur utilisateur = (Utilisateur) req.getSingleResult();
-			if (utilisateur != null && utilisateur.getMotDePasse() == mdp) {
+			utilisateur = (Utilisateur) req.getSingleResult();
+		} catch (Exception e) {
+			utilisateur = null;
+		}
+			if (utilisateur != null && utilisateur.getMdp() == mdp) {
 				auth = true;
 			}
 			else auth = false;
-		} finally {
-			em.close();
-		}
+		em.close();
 		return auth;
 	}
 

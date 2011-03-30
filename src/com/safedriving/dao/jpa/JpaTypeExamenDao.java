@@ -45,7 +45,7 @@ public class JpaTypeExamenDao implements Dao<TypeExamen>{
 		em = emf.createEntityManager();
 		List<TypeExamen> typesExamen = null;
 		try {
-			typesExamen = (List<TypeExamen>) em.createQuery("SELECT p FROM type_examen AS p").getResultList();
+			typesExamen = (List<TypeExamen>) em.createQuery("SELECT p FROM TypeExamen AS p").getResultList();
 		} finally {
 			em.close();
 			return typesExamen;

@@ -45,7 +45,7 @@ public class JpaExamenPrefectureDao implements Dao<ExamenPrefecture>{
 		em = emf.createEntityManager();
 		List<ExamenPrefecture> examensPrefecture = null;
 		try {
-			examensPrefecture = (List<ExamenPrefecture>) em.createQuery("SELECT p FROM examen_prefecture AS p").getResultList();
+			examensPrefecture = (List<ExamenPrefecture>) em.createQuery("SELECT p FROM Examen_prefecture AS p").getResultList();
 		} finally {
 			em.close();
 			return examensPrefecture;

@@ -45,7 +45,7 @@ public class JpaAdresseDao implements Dao<Adresse>{
 		em = emf.createEntityManager();
 		List<Adresse> adresses = null;
 		try {
-			adresses = (List<Adresse>) em.createQuery("SELECT p FROM adresse AS p").getResultList();
+			adresses = (List<Adresse>) em.createQuery("SELECT p FROM Adresse AS p").getResultList();
 		} finally {
 			em.close();
 			return adresses;

@@ -45,7 +45,7 @@ public class JpaClientDao implements Dao<Client>{
 		em = emf.createEntityManager();
 		List<Client> clients = null;
 		try {
-			clients = (List<Client>) em.createQuery("SELECT p FROM client AS p").getResultList();
+			clients = (List<Client>) em.createQuery("SELECT p FROM Client AS p").getResultList();
 		} finally {
 			em.close();
 			return clients;

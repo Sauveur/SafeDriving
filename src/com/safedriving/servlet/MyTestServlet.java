@@ -21,12 +21,12 @@ public class MyTestServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public MyTestServlet() {
-    	Adresse adresseTest = new Adresse();
-    	adresseTest.setVoie("69 rue des fesses");
-    	adresseTest.setVille("Moncul");
-    	adresseTest.setCodePostal(69000);
-        JpaAdresseDao adresseDao = new JpaAdresseDao(Persistence.createEntityManagerFactory("SafeDriving-PU"));
-        adresseDao.ajouter(adresseTest);
+//    	Adresse adresseTest = new Adresse();
+//    	adresseTest.setVoie("69 rue des fesses");
+//    	adresseTest.setVille("Moncul");
+//    	adresseTest.setCodePostal(69000);
+//        JpaAdresseDao adresseDao = new JpaAdresseDao(Persistence.createEntityManagerFactory("SafeDriving-PU"));
+//        adresseDao.ajouter(adresseTest);
     }
 
 	/**

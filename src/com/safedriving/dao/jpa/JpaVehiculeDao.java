@@ -45,7 +45,7 @@ public class JpaVehiculeDao implements Dao<Vehicule>{
 		em = emf.createEntityManager();
 		List<Vehicule> vehicules = null;
 		try {
-			vehicules = (List<Vehicule>) em.createQuery("SELECT p FROM vehicule AS p").getResultList();
+			vehicules = (List<Vehicule>) em.createQuery("SELECT p FROM Vehicule AS p").getResultList();
 		} finally {
 			em.close();
 			return vehicules;
