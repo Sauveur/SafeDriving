@@ -43,4 +43,10 @@ public class MyTestServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		res.getWriter().println("<html><h1>" + (String)req.getSession().getAttribute("mdp") + "</h1></html>");
+	}
+
 }

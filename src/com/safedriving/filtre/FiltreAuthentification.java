@@ -32,9 +32,8 @@ public class FiltreAuthentification implements Filter {
 		JpaUtilisateurDao utilisateurDao = new JpaUtilisateurDao(Persistence.createEntityManagerFactory("SafeDriving-PU"));
 		if (utilisateurDao.authentifier((String)session.getAttribute("pseudo"), (String)session.getAttribute("mdp"))) {
 			chain.doFilter(request, response);
-		}
-		else {
-			res.sendRedirect("../login.jsp");
+		} else {
+			res.sendRedirect("../#erreur-auth");
 		}
 
 	}

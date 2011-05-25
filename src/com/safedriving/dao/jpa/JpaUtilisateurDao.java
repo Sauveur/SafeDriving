@@ -81,7 +81,7 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 		} catch (Exception e) {
 			utilisateur = null;
 		}
-			if (utilisateur != null && utilisateur.getMdp() == mdp) {
+			if (utilisateur != null && utilisateur.getMdp().equals(mdp)) {
 				auth = true;
 			}
 			else auth = false;
