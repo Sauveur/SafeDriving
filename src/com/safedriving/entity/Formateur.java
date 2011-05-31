@@ -24,6 +24,8 @@ public class Formateur implements Serializable{
 	@OneToOne
 	@JoinColumn(name="FK_utilisateur")
 	private Utilisateur utilisateur;
+	@OneToMany(mappedBy="formateur")
+	private List<Indisponibilite> indisponibilites;
 	
 	public Long getId() {
 		return id;
@@ -48,6 +50,12 @@ public class Formateur implements Serializable{
 	}
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+	public List<Indisponibilite> getIndisponibilites() {
+		return indisponibilites;
+	}
+	public void setIndisponibilites(List<Indisponibilite> indisponibilites) {
+		this.indisponibilites = indisponibilites;
 	}
 	
 	public Formateur() {

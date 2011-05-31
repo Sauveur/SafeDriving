@@ -35,7 +35,7 @@ public class SessionFormation implements Serializable{
 	@JoinColumn(name="FK_formation")
 	private Formation formation;
 	private int note;
-	private String comentaire;
+	private String commentaire;
 	@ManyToOne
 	@JoinColumn(name="FK_client")
 	private Client client;
@@ -83,10 +83,10 @@ public class SessionFormation implements Serializable{
 		this.note = note;
 	}
 	public String getComentaire() {
-		return comentaire;
+		return commentaire;
 	}
-	public void setComentaire(String comentaire) {
-		this.comentaire = comentaire;
+	public void setComentaire(String commentaire) {
+		this.commentaire = commentaire;
 	}
 	public Client getClient() {
 		return client;

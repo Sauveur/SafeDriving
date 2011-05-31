@@ -21,7 +21,7 @@ public class Vehicule implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@ManyToOne
-	@JoinColumn(name="FK_type_vehivule")
+	@JoinColumn(name="FK_typeVehicule")
 	private TypeVehicule typeVehicule;
 	private String Immatriculation;
 	@ManyToOne
