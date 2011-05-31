@@ -54,7 +54,14 @@ public class JpaFormateurDao implements Dao<Formateur>{
 
 	@Override
 	public void maj(Formateur t) {
-		
+		em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.merge(t);
+			em.getTransaction().commit();
+		} finally {
+			em.close();
+		}
 	}
 
 	@Override

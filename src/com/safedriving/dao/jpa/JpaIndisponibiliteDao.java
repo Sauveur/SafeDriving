@@ -6,18 +6,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import com.safedriving.dao.Dao;
-import com.safedriving.entity.Adresse;
+import com.safedriving.entity.Indisponibilite;
+import com.safedriving.entity.TypeExamen;
 
-public class JpaAdresseDao implements Dao<Adresse>{
+public class JpaIndisponibiliteDao implements Dao<Indisponibilite> {
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
-
-	public JpaAdresseDao(EntityManagerFactory emf){
+	
+	public JpaIndisponibiliteDao(EntityManagerFactory emf){
 		this.emf = emf;
 	}
-
+	
 	@Override
-	public void ajouter(Adresse t) {
+	public void ajouter(Indisponibilite t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -29,11 +30,11 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public Adresse trouverParId(Long id) {
+	public Indisponibilite trouverParId(Long id) {
 		em = emf.createEntityManager();
-		Adresse t = null;
+		Indisponibilite t = null;
 		try {
-			t = em.find(Adresse.class, id);
+			t = em.find(Indisponibilite.class, id);
 		} finally {
 			em.close();
 			return t;			
@@ -41,19 +42,19 @@ public class JpaAdresseDao implements Dao<Adresse>{
 	}
 
 	@Override
-	public List<Adresse> lister() {
+	public List<Indisponibilite> lister() {
 		em = emf.createEntityManager();
-		List<Adresse> adresses = null;
+		List<Indisponibilite> indisponibilites = null;
 		try {
-			adresses = (List<Adresse>) em.createQuery("SELECT p FROM Adresse AS p").getResultList();
+			indisponibilites = (List<Indisponibilite>) em.createQuery("SELECT p FROM Indisponibilite AS p").getResultList();
 		} finally {
 			em.close();
-			return adresses;
+			return indisponibilites;
 		}
 	}
 
 	@Override
-	public void maj(Adresse t) {
+	public void maj(Indisponibilite t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -61,11 +62,11 @@ public class JpaAdresseDao implements Dao<Adresse>{
 			em.getTransaction().commit();
 		} finally {
 			em.close();
-		}
+		}	
 	}
 
 	@Override
-	public void supprimer(Adresse t) {
+	public void supprimer(Indisponibilite t) {
 		em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -74,6 +75,7 @@ public class JpaAdresseDao implements Dao<Adresse>{
 		} finally {
 			em.close();
 		}
+		
 	}
 
 }

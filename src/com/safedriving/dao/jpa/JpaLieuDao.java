@@ -54,7 +54,14 @@ public class JpaLieuDao implements Dao<Lieu>{
 
 	@Override
 	public void maj(Lieu t) {
-		
+		em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.merge(t);
+			em.getTransaction().commit();
+		} finally {
+			em.close();
+		}
 	}
 
 	@Override

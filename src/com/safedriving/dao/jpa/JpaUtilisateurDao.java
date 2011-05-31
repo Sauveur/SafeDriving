@@ -55,7 +55,14 @@ public class JpaUtilisateurDao implements Dao<Utilisateur>{
 
 	@Override
 	public void maj(Utilisateur t) {
-		
+		em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.merge(t);
+			em.getTransaction().commit();
+		} finally {
+			em.close();
+		}
 	}
 
 	@Override

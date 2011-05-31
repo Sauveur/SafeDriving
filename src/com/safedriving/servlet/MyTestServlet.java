@@ -1,6 +1,7 @@
 package com.safedriving.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.safedriving.dao.jpa.JpaAdresseDao;
+import com.safedriving.dao.jpa.JpaVehiculeDao;
 import com.safedriving.entity.Adresse;
+import com.safedriving.entity.Vehicule;
 
 /**
  * Servlet implementation class MyTestServlet
@@ -47,6 +50,11 @@ public class MyTestServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		res.getWriter().println("<html><h1>" + (String)req.getSession().getAttribute("mdp") + "</h1></html>");
+		JpaVehiculeDao vehiculeDao = new JpaVehiculeDao(Persistence.createEntityManagerFactory("SafeDriving-PU"));
+		List<Vehicule> vehicules = vehiculeDao.lister();
+		Vehicule v = vehicules.get(0);
+		v.setImmatriculation("TOTO");
+		vehiculeDao.maj(v);
 	}
 
 }

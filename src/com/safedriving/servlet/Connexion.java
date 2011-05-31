@@ -38,7 +38,7 @@ public class Connexion extends HttpServlet {
 		String mdp = request.getParameter("mdp");
 		request.getSession().setAttribute("pseudo", pseudo);
 		request.getSession().setAttribute("mdp", mdp);
-		response.sendRedirect("./auth/test.jsp");
+		response.sendRedirect("./auth/MyTestServlet");
 	}
 
 }

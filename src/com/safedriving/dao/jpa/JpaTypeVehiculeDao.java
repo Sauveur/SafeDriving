@@ -54,7 +54,14 @@ public class JpaTypeVehiculeDao implements Dao<TypeVehicule>{
 
 	@Override
 	public void maj(TypeVehicule t) {
-		
+		em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.merge(t);
+			em.getTransaction().commit();
+		} finally {
+			em.close();
+		}
 	}
 
 	@Override
